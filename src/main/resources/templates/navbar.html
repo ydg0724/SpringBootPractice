@@ -1,0 +1,22 @@
+<!--내비게이션 바의 스타일과 레이아웃 설정-->
+	<nav th:fragment="navbarFragment" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">SSB</a> <!--SSB를 클릭하면 메인페이지로 이동-->
+			<!--네비게이션 바의 메뉴 추가버튼-->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<!--화면 크기에 따라 네비게이션바 노출 관리-->
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<!--로그인 표시-->
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="#">로그인</a>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</nav>
