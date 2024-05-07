@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.demo.question.QuestionService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -22,7 +23,18 @@ import com.example.demo.question.QuestionRepository;
 @SpringBootTest
 class SbbApplicationTests {
 
+	
 	@Autowired
+	private QuestionService questionService;
+	
+	@Test
+	void testJpa() {
+		for(int i=1;i<=300;i++) {
+			String subject = String.format("테스트 데이터입니다.:[%03d]", i);
+			String content = "내용 없음";
+			this.questionService.create(subject, content);
+		}
+	/*@Autowired
 	private QuestionRepository questionRepository;
 	@Autowired
 	private AnswerRepository answerRepository;
@@ -43,7 +55,7 @@ class SbbApplicationTests {
 		q2.setSubject("스프링 부트 모델 질문입니다.");
 		q2.setContent("id는 자동으로 생성되나요?");
 		q2.setCreateDate(LocalDateTime.now());
-		this.questionRepository.save(q2);
+		this.questionRepository.save(q2);*/
 		
 		/*
 		Optional<Question> oq = this.questionRepository.findById(2);
