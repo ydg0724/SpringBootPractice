@@ -3,6 +3,7 @@ package com.example.demo.answer;
 import java.time.LocalDateTime;
 
 import com.example.demo.question.Question;
+import com.example.demo.user.SiteUser;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,4 +29,8 @@ public class Answer {
 	
 	@ManyToOne		//N:1의 관계를 표현 ->하나의 질문에 답변을 여러 개 달릴 수 있다 (DB에선 외래키)
 	private Question question;
+	@ManyToOne
+    private SiteUser author;
+	
+	private LocalDateTime modifyDate;
 }

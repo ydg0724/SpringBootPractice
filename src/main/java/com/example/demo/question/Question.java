@@ -12,6 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;	
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+import com.example.demo.user.SiteUser;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -36,4 +38,9 @@ public class Question {
 	@OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) //1:N 관계
 	private List<Answer> answerList;	//질문 하나에 답변에 여러 개 이므로 Answer 속성은 리스트로 표현
 	// 질문에서 답변을 참조하려면 question.getAnswerList()를 호출하면 된다.
+	
+	@ManyToOne	//한 사람이 질문을 여러 개 작성할수 있기때문에
+    private SiteUser author;	
+	
+	private LocalDateTime modifyDate;
 }

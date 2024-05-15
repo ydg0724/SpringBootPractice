@@ -11,10 +11,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
 
 @Configuration	//스프링의 환경 설정 파일임을 의미하는 애너테이션
 @EnableWebSecurity	//모든 요청 URL이 스프링 시큐리티를 제어받도록 하는 애너테이션
+@EnableMethodSecurity //로그인 여부를 판별할때 필요한 애너테이션
 public class SecurityConfig {
 	@Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
